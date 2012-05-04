@@ -1,3 +1,6 @@
+" Forget being compatible with good ol' vi
+set nocompatible
+
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
