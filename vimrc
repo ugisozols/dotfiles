@@ -1,6 +1,5 @@
-set nocompatible                  " Must come first because it changes other options.
-
-silent! call pathogen#runtime_append_all_bundles()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 let mapleader=","
 
@@ -9,75 +8,77 @@ set guifont=Monaco:h15
 
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 
-" map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-" map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-" map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-" map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-" map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <C-Tab> :bnext<cr>
 
-map <Space> i_<Esc>r              " Insert single character
+" Turn off highlight search
+nmap <silent> ,n :nohls<CR>
 
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
+" Edit the vimrc file
+nmap <silent> ,ev :e $MYVIMRC<CR>
+nmap <silent> ,sv :so $MYVIMRC<CR>
 
-set showcmd                       " Display incomplete commands.
-set showmode                      " Display the mode you're in.
+" Turn on syntax highlighting
+syntax enable
+" Turn on file type detection
+filetype plugin indent on         
 
-set backspace=indent,eol,start    " Intuitive backspacing.
+" Display incomplete commands
+set showcmd                      
+" Display the mode you're in
+set showmode           
 
-set hidden                        " Handle multiple buffers better.
+" Intuitive backspacing
+set backspace=indent,eol,start    
 
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
+" Handle multiple buffers better
+set hidden                      
 
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
+" Enhanced command line completion
+set wildmenu                     
+" Complete files like a shell
+set wildmode=list:longest         
 
-set number                        " Show line numbers.
-set ruler                         " Show cursor position.
+" Case-insensitive searching
+set ignorecase                   
+" But case-sensitive if expression contains a capital letter
+set smartcase                     
 
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
+" Show line numbers
+set number                       
+" Show cursor position
+set ruler                         
 
-set wrap                          " Turn on line wrapping.
-set scrolloff=3                   " Show 3 lines of context around the cursor.
+" Highlight matches as you type
+set incsearch                    
+" Highlight matches
+set hlsearch                      
 
-set title                         " Set the terminal's title
+" Turn on line wrapping
+set wrap                         
+" Show 3 lines of context around the cursor
+set scrolloff=3                   
 
-set visualbell                    " No beeping.
+" Set the terminal's title
+set title                         
 
-set nobackup                      " Don't make a backup before overwriting a file.
-set nowritebackup                 " And again.
-set directory=~/.vim/tmp//,.      " Keep swap files in one location
+" No beeping
+set visualbell                    
 
-" UNCOMMENT TO USE
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
+" Don't make a backup before overwriting a file
+set nobackup                     
+" And again
+set nowritebackup                
+" Keep swap files in one location
+set directory=~/.vim/tmp
 
-set laststatus=2                  " Show the status line all the time
+" Global tab width
+set tabstop=2                   
+" And again, related
+set shiftwidth=2                
+" Use spaces instead of tabs
+set expandtab                    
+
+" Show the status line all the time
+set laststatus=2                  
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
-
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
-
-"vnoremap ; :
-"vnoremap : ;
-
-" Automatic fold settings for specific files. Uncomment to use.
-autocmd FileType ruby setlocal foldmethod=syntax
-autocmd FileType css  setlocal foldmethod=indent
-
