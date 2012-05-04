@@ -17,6 +17,9 @@ nmap <silent> ,n :nohls<CR>
 nmap <silent> ,ev :e $MYVIMRC<CR>
 nmap <silent> ,sv :so $MYVIMRC<CR>
 
+" Toggle the NERD Tree on an off with F7
+nmap <F7> :NERDTreeToggle<CR>
+
 " Turn on syntax highlighting
 syntax enable
 " Turn on file type detection
