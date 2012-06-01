@@ -1,5 +1,5 @@
 " Forget being compatible with good ol' vi
-set nocompatible
+" set nocompatible
 
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -88,3 +88,5 @@ set expandtab
 set laststatus=2                  
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+set grepprg=ack
