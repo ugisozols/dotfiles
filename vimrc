@@ -90,3 +90,8 @@ set laststatus=2
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 set grepprg=ack
+
+" Comment/uncomment multiple lines
+source ~/.vim/vcomments.vim
+map <C-a> :call Comment()<CR>
+map <C-b> :call Uncomment()<CR>
