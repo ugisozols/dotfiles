@@ -4,10 +4,26 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-let mapleader=","
+" Turn on syntax highlighting
+syntax enable
+" Turn on file type detection
+filetype plugin indent on         
 
-colorscheme railscasts
+set background=dark
+colorscheme solarized 
 set guifont=Monaco:h15
+
+set ttimeoutlen=50
+
+if &term =~ "xterm" || &term =~ "screen"
+  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
+endif
+
+if has("gui_macvim")
+  let macvim_skip_cmd_opt_movement = 1
+endif
+
+let mapleader=","
 
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 
@@ -22,11 +38,6 @@ nmap <silent> ,sv :so $MYVIMRC<CR>
 
 " Toggle the NERD Tree on an off with F7
 nmap <F7> :NERDTreeToggle<CR>
-
-" Turn on syntax highlighting
-syntax enable
-" Turn on file type detection
-filetype plugin indent on         
 
 " Display incomplete commands
 set showcmd                      
