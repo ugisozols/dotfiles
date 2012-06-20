@@ -9,18 +9,12 @@ syntax enable
 " Turn on file type detection
 filetype plugin indent on         
 
-set background=dark
-colorscheme solarized 
+colorscheme railscasts
 set guifont=Monaco:h15
-
-set ttimeoutlen=50
-
-if &term =~ "xterm" || &term =~ "screen"
-  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
-endif
 
 if has("gui_macvim")
   let macvim_skip_cmd_opt_movement = 1
+  set guioptions=-t
 endif
 
 let mapleader=","
@@ -106,3 +100,6 @@ set grepprg=ack
 source ~/.vim/vcomments.vim
 map <C-a> :call Comment()<CR>
 map <C-b> :call Uncomment()<CR>
+
+" Ignore the .git directory
+set wildignore+=.git
